@@ -1,0 +1,21 @@
+.sumador{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sumador button{
+    margin: 25px;
+    border: none;
+    background: none;
+}
+
+.sumador h2{
+    padding: 5px;
+}
+
+.agregarCarrito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

@@ -9,7 +9,7 @@ const Navbar = () => {
         {nombre:"Zapatillas", id:0, ruta:"" },
         {nombre:"Nosotros", id:1, ruta:"" },
         {nombre:"Contacto", id:2, ruta:"" },
-        {nombre:"Tu vieja", id:3, ruta:"" }
+        {nombre:"Otros", id:3, ruta:"" }
         ];
 
     return(

@@ -21,17 +21,17 @@ reject("algo salio mal");}
 export const ItemListContainer = () =>{
 
 const [Productos, setProductos] = useState([])
+const [loading, setloading] = useState(true);
 
 useEffect(() => {
-  obtenerProductos
-  .then((data)=>{
-   setProductos(data);
+  fetch("https://fakestoreapi.com/products")
+  .then((res)=>res.json())
+  .then((json)=>setProductos(json))
+  .catch((error) =>{
+
   })
-  .catch((error)=>{
-   console.log("algo salio mal")
-   console.log(error);
-})
-}, [])
+  .finally(setloading(false));
+}, []);
 
 
 

@@ -1,6 +1,7 @@
 import React, { useState , useEffect } from "react";
 import { ItemCount } from "./ItemCount";
 import { Itemlist } from "./itemlist";
+import { useParams } from "react-router-dom";
 
 const productos = [
    {nombre:"Adidas" ,id:0 , precio:"5500" , stock:4},
@@ -20,8 +21,14 @@ reject("algo salio mal");}
 
 export const ItemListContainer = () =>{
 
-const [Productos, setProductos] = useState([])
-const [loading, setloading] = useState(true);
+const [productos, setProductos] = useState([])
+const [loading, setLoading] = useState(true);
+
+const {id} = useParams();
+
+const URL_BASE ='https://fakestoreapi.com/products'
+
+const URL_CAT =`${URL_BASE}/category/${id}`
 
 useEffect(() => {
   fetch("https://fakestoreapi.com/products")
@@ -30,23 +37,19 @@ useEffect(() => {
   .catch((error) =>{
 
   })
-  .finally(setloading(false));
-}, []);
+  .finally(setLoading(false));
+}, [id]);
 
 
 
 
    
    return(
-      Productos.map((producto)=>{
-         return(
-            <h1 key={producto.id}>{producto.nombre}{producto.precio}</h1>
-         )
-      }),
-      <>
-   <Itemlist></Itemlist>
 
+   <>
+   <Itemlist productos={productos}></Itemlist>
    <ItemCount stock={8} initial={1} onAdd= {onAdd}></ItemCount>
+   
 
    </>
 

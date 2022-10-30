@@ -1,12 +1,21 @@
 import React from 'react'
 import{ Item } from "./Item"
 
-export const Itemlist = () =>{
+export const Itemlist = ({productos}) =>{
 
   return (
 
-    <Item></Item>
+          <>{
+           productos.map((producto)=>{
+            return(
+              <Item producto={producto}/>
+            )
+           })
 
+          }
+           
+          </>
+    )}
 
-  )
-}
+  
+
